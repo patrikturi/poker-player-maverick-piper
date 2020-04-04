@@ -11,7 +11,7 @@ class ChenTestCase(unittest.TestCase):
                 "rank": "K",
                 "suit": "spades"
             }]
-        self.assertEqual(get_value(hand),8)
+        self.assertEqual(get_value(hand),3)
     def test_pair(self):
         hand = [{
                 "rank": "6",

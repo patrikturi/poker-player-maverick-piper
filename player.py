@@ -19,7 +19,7 @@ class Player:
             self.rank1 = cards[0]['rank']
             self.rank2 = cards[1]['rank']
             value = chen.get_value(cards)
-            if value < 10 and self.rank1 != 'A' and self.rank2 != 'A':
+            if value < 8 and self.rank1 != 'A' and self.rank2 != 'A':
                 self.log_check()
                 return 0 # check only, no raise
             if self.rank1 == self.rank2 and self.rank1 == 'A':
