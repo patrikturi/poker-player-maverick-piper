@@ -29,6 +29,4 @@ def get_value(hand):
     total_value = max(card1_value, card2_value)
     if card1_value == card2_value:
         total_value += card2_value
-    dif = abs(card2_num - card1_num)
-    total_value = total_value - (dif if dif<5 else 4)
     return int(math.ceil(total_value))
