@@ -19,17 +19,16 @@ def _card_to_value(card):
     if card_value < 0:
         rank = rank.upper()
         card_value = HIGH_CARD_VALUES[rank]
-    return card_value
+        card_num = card_value
+    return card_num, card_value
 
 
 def get_value(hand):
-    card1_value = _card_to_value(hand[0])
-    card2_value = _card_to_value(hand[1])
-    if card1_value>card2_value:
-        card1_value, card2_value = card2_value, card1_value
-    total_value = card2_value
+    card1_num, card1_value = _card_to_value(hand[0])
+    card2_num, card2_value = _card_to_value(hand[1])
+    total_value = max(card1_value, card2_value)
     if card1_value == card2_value:
         total_value += card2_value
-    dif = card2_value - card1_value
+    dif = abs(card2_num - card1_num)
     total_value = total_value - (dif if dif<5 else 4)
     return int(math.ceil(total_value))
