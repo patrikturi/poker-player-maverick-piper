@@ -29,5 +29,7 @@ def get_value(hand):
     total_value = max(card1_value, card2_value)
     if card1_value == card2_value:
         total_value += card2_value
+    if hand[0]['suit'] == hand[1]['suit']:
+        total_value += 2
     return int(math.ceil(total_value))
 
