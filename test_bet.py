@@ -7,4 +7,12 @@ class BetTestCase(unittest.TestCase):
         self.assertEqual(0, Player().betRequest(gs))
 
     def test_second(self):
-        pass
+        gs={'orbits': 14, 'tournament_id': '5e7f0ed0448e31000456e3d0', 'small_blind': 15, 'dealer': 0, 'game_id': '5e8887ce0a5c770004c1095b', 'big_blind': 30, 'bet_index': 1, 'minimum_raise': 30, 'round': 42, 'in_action': 2, 'current_buy_in': 135, 'community_cards': [{'suit': 'clubs', 'rank': '10'}, {'suit': 'clubs', 'rank': 'Q'}, {'suit': 'diamonds', 'rank': 'A'}], 'pot': 540, 'players': [{'version': 'Default Java folding player', 'id': 0, 'bet': 0, 'time_used': 575174, 'stack': 902, 'status': 'folded', 'name': 'I have a JavaScript job opportunity for yo'}, {'version': 'Post flops are cool', 'id': 1, 'bet': 435, 'time_used': 1243275, 'stack': 806, 'status': 'active', 'name': 'AllLean'},
+            {'version': 'Default Python folding player', 'id': 2, 'hole_cards':
+            [{
+                'suit': 'clubs',
+                'rank': 'A'
+             },{
+                'suit': 'diamonds', 'rank': 'K'
+             }], 'time_used': 842363, 'stack': 752, 'bet': 105, 'status': 'active', 'name': 'Maverick Piper'}]}
+        self.assertEqual(30, Player().betRequest(gs))
