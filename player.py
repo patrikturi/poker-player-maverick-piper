@@ -4,7 +4,7 @@ import chen
 class Player:
     VERSION = "Default Python folding player"
 
-    MAX_CALL = 300
+    MAX_BET = 300
 
     def betRequest(self, game_state):
         print (game_state)
@@ -19,16 +19,18 @@ class Player:
             self.rank1 = cards[0]['rank']
             self.rank2 = cards[1]['rank']
             value = chen.get_value(cards)
-            if value <= 10 and self.rank1 != 'A' and self.rank2 != 'A':
+            if value < 10 and self.rank1 != 'A' and self.rank2 != 'A':
                 self.log_check()
                 return 0 # check only, no raise
-            if cards[0]['rank'] == cards[1]['rank']:
+            if self.rank1 == self.rank2 and self.rank1 == 'A':
                 self.log_allin()
                 return 1000 # all in
 
         minimum_raise = game_state['minimum_raise'] if 'minimum_raise' in game_state else 0
 
         amount = current_buy_in - me['bet']
+        if amount > self.MAX_BET and self.rank1 != self.rank2:
+            return 0 # fold
         self.log_call(amount)
         return amount # always call
 
