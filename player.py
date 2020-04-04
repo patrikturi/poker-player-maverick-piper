@@ -12,14 +12,14 @@ class Player:
         cards = me['hole_cards']
         if len(cards) > 1:
             if cards[0]['rank'] == cards[1]['rank']:
-                return 1000
+                return 1000 # all in
             value = chen.get_value(cards)
             if value <= 7:
-                return me['bet'] # call
+                return me['bet'] # call only if no raise
 
         minimum_raise = game_state['minimum_raise'] if 'minimum_raise' in game_state else 0
         r = minimum_raise if random.random()>0.7 else 0
-        return current_buy_in - me['bet'] + r
+        return current_buy_in - me['bet'] + r # always call
 
     def showdown(self, game_state):
         return True
