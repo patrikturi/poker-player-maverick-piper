@@ -30,3 +30,4 @@ def get_value(hand):
     if card1_value == card2_value:
         total_value += card2_value
     return int(math.ceil(total_value))
+
