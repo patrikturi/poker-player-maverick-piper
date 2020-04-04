@@ -14,7 +14,7 @@ class Player:
             if cards[0]['rank'] == cards[1]['rank']:
                 return 1000 # all in
             value = chen.get_value(cards)
-            if value <= 7:
+            if value <= 7 and cards[0]['rank'] != 'A' and cards[1]['rank'] != 'A':
                 return me['bet'] # call only if no raise
 
         minimum_raise = game_state['minimum_raise'] if 'minimum_raise' in game_state else 0
