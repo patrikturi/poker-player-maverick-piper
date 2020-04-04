@@ -27,9 +27,8 @@ class Player:
                 return 1000 # all in
 
         minimum_raise = game_state['minimum_raise'] if 'minimum_raise' in game_state else 0
-        r = minimum_raise if random.random()>0.7 else 0
 
-        amount = current_buy_in - me['bet'] + r
+        amount = current_buy_in - me['bet']
         self.log_call(amount)
         return amount # always call
 
