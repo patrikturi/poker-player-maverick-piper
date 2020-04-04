@@ -33,8 +33,9 @@ class Player:
             print('CHECK only (HIGH bet)')
             return 0 # fold
 
-        r = minimum_raise + random.random()*10 if random.random()>0.3 else 0
-        amount += int(r)
+        if len(cards) > 1:
+            r = minimum_raise + random.random()*10 if random.random()>0.3 else 0
+            amount += int(r)
         self.log_call(amount)
         return amount # always call
 
