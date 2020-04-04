@@ -34,7 +34,7 @@ class Player:
             return 0 # fold
 
         r = minimum_raise + random.random()*10 if random.random()>0.3 else 0
-        amount += r
+        amount += int(r)
         self.log_call(amount)
         return amount # always call
 
