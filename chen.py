@@ -25,11 +25,6 @@ def _card_to_value(card):
 def get_value(hand):
     card1_value = _card_to_value(hand[0])
     card2_value = _card_to_value(hand[1])
-    if card1_value>card2_value:
-        card1_value, card2_value = card2_value, card1_value
-    total_value = card2_value
-    if card1_value == card2_value:
-        total_value += card2_value
-    dif = card2_value - card1_value
-    total_value = total_value - (dif if dif<5 else 4)
+    total_value = card1_value + card2_value
     return int(math.ceil(total_value))
+
