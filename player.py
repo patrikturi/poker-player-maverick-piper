@@ -32,6 +32,9 @@ class Player:
         if amount > self.MAX_BET and self.rank1 != self.rank2:
             print('CHECK only (HIGH bet)')
             return 0 # fold
+
+        r = minimum_raise + random.random()*10 if random.random()>0.3 else 0
+        amount += r
         self.log_call(amount)
         return amount # always call
 
