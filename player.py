@@ -30,6 +30,7 @@ class Player:
 
         amount = current_buy_in - me['bet']
         if amount > self.MAX_BET and self.rank1 != self.rank2:
+            print('CHECK only (HIGH bet)')
             return 0 # fold
         self.log_call(amount)
         return amount # always call
